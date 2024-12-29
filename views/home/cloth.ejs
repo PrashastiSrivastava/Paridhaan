@@ -1,0 +1,75 @@
+<% layout('layouts/boilerplate.ejs') %>
+
+<style>
+    
+    .card-container-cloth {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+        padding: 20px;
+    }
+    
+    .card-cloth {
+        background-color: #fff;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        overflow: hidden;
+        width: 300px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        transition: transform 0.2s ease;
+    }
+    
+    .card-cloth:hover {
+        transform: scale(1.05);
+    }
+    
+    .card-image-cloth {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+        border-bottom: 1px solid #ddd;
+    }
+    
+    .card-content-cloth {
+        padding: 16px;
+    }
+    
+    .card-content-cloth h2 {
+        margin: 0 0 10px;
+        color: #333;
+    }
+    
+    .card-content-cloth p {
+        margin: 6px 0;
+        color: #555;
+        font-size: 14px;
+    }
+    
+    .card-content-cloth p strong {
+        color: #000;
+    }
+    
+    </style>
+    
+<div class="card-container-cloth">
+    <% for(cloth of allCloth) { %>
+        <div class="card-cloth">
+            <img src="<%= cloth.image.Image_url %>" alt="<%= cloth.Brand %> <%= cloth.Cloth_category %>" class="card-image-cloth">
+            <div class="card-content-cloth">
+                <h2 class="brand-cloth"><%= cloth.Brand %></h2>
+                <p><strong>Category:</strong> <%= cloth.Cloth_category %> (<%= cloth.Wear_type %>)</p>
+                <p><strong>Material:</strong> <%= cloth.Material %></p>
+                <p><strong>Fit Type:</strong> <%= cloth.Fit_type %></p>
+                <p><strong>Occasion:</strong> <%= cloth.Occasion %></p>
+                <p><strong>Colors:</strong> <%= cloth.Colors.join(", ") %></p>
+                <p><strong>Sizes:</strong> <%= cloth.Size.join(", ") %></p>
+                <p><strong>Wash Care:</strong> <%= cloth.Wash_care.join(", ") %></p>
+                <p><strong>Season:</strong> <%= cloth.Season %></p>
+                <p><strong>Price:</strong> ₹<%= cloth.Discounted_price %> <del>₹<%= cloth.Price %></del> (<%= cloth.Discount_percentage %>)</p>
+                <p><strong>Available on:</strong> <%= cloth.Available_on %></p>
+                <a href="<%= cloth.image.Purchase_link %>">Purache link</a>
+            </div>
+        </div>
+    <% } %>
+</div>

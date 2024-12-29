@@ -1,0 +1,108 @@
+<% layout('layouts/boilerplate') %>
+
+<section class="ques4">
+    <div class="weight-input">
+      <label>Please enter your weight</label>
+
+      <div class="input-container">
+      <form method="post" action="/quiz/ques4">
+        <div class="input-box">
+            <input type="number" id="weight" name="weight" placeholder="Weigh(kg)" required>
+        </div>
+        <button class="next-btn">Next</button>
+      </form>
+      </div>
+      
+        <a href="ques3"><button class="prev-btn">Previous</button></a>
+      
+    </div>
+  </section>
+  
+  <style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Arial, sans-serif;
+    }
+
+    .ques4 {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: #EDE6E2;
+    }
+
+    .weight-input {
+        text-align: center;
+        width: 90%;
+        max-width: 400px;
+    }
+
+    label {
+        font-size: 1.8rem;
+        font-weight: 500;
+        color: #1d3557;
+        display: block;
+        margin-bottom: 2rem;
+    }
+
+    .input-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .input-box {
+        display: flex;
+        justify-content: center;
+        border-bottom: 2px solid #1d3557;
+        text-align: center;
+        width: 100%;
+    }
+
+    .input-box input {
+        width: 7rem;
+        padding: 0.5rem;
+        background: transparent;
+        font-size: 1rem;
+        border: none;
+        outline: none;
+        color: #1d3557;
+    }
+
+    .input-box input::placeholder {
+        color: #a8a8a8;
+    }
+
+    .prev-btn, .next-btn {
+    padding: 0.8rem 2.5rem;
+    font-size: 1rem;
+    font-weight: 500;
+    color: #1d3557;
+    background-color: #fff;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+    margin-top: 20px;
+  }
+
+  .prev-btn:hover, .next-btn:hover {
+    background-color: #1d3557;
+    color: #fff;
+  }
+
+  .prev-btn {
+    position: absolute;
+    bottom: 10%;
+    left: 15%;
+  }
+
+  .next-btn {
+    position: absolute;
+    bottom: 10%;
+    right: 15%;
+  }
+</style>

@@ -1,0 +1,68 @@
+<% layout('layouts/boilerplate') %>
+
+<section class="main-container">
+        <div class="image-box">
+            <!-- <img src="../../../../../../AppData/Local/Temp/gradio/5206e87ce874cf9d690c61cc813266c6a6d71b298ae2d189269734227bdd0a9c/finalimg.png" alt="" class="card-image-cloth"> -->    
+            <img src="/image/finalimg.png" alt="try_on image" class="card-image-cloth">    
+        </div>
+            <a href="/recommend/output"><button class="try-style">go back</button></a>
+        
+    </div>
+</section>
+
+<style>
+.main-container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 78.9rem;
+    }
+  
+    /* Left Section */
+    .left-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 60%;
+    }
+  
+    .image-box {
+        width: 100%;
+        position: absolute;
+        top: 7rem;
+        left: 30rem;
+        max-width: 300px;
+        height: 400px;
+        border: 2px solid #000;
+        background-color: #fff;
+        margin-bottom: 1rem;
+    }
+
+    .image-box img{
+        max-width: 290px;
+        height: 390px;
+    }
+  
+    .try-style {
+        position: absolute;
+        top: 30.5rem;
+        left: 36rem;
+        padding: 0.8rem 1.5rem;
+        font-size: 1rem;
+        font-weight: 500;
+        color: #fff;
+        background-color: #3498db;
+        border: none;
+        border-radius: 25px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+  
+    .try-style:hover {
+        background-color: #21618c;
+    }
+</style>

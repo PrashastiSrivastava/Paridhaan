@@ -1,0 +1,76 @@
+<!-- <style>
+  .flash-message {
+    width: 100%;
+    max-width: 600px;
+    padding: 15px;
+    border-radius: 5px;
+    color: white;
+    font-size: 16px;
+    text-align: center;
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0;
+    z-index: 1000;
+    transition: opacity 0.5s ease-in-out, top 0.5s ease-in-out;
+  }
+
+  .flash-success {
+    background-color: #4caf50; /* Green */
+  }
+
+  .flash-error {
+    background-color: #f44336; /* Red */
+  }
+
+  .flash-message.show {
+    opacity: 1;
+    top: 40px;
+  }
+
+  .flash-close-btn {
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 18px;
+    cursor: pointer;
+  }
+
+
+
+</style>
+    <div id="flashMessage" class="flash-message">
+      <button class="flash-close-btn" onclick="closeFlashMessage()">&times;</button>
+      <span id="flashText"></span>
+    </div>
+
+    <script>
+      function showFlashMessage(type, message) {
+        const flashMessage = document.getElementById('flashMessage');
+        const flashText = document.getElementById('flashText');
+  
+        // Set message text and class based on type
+        flashText.textContent = message;
+        flashMessage.className = 'flash-message';
+        flashMessage.classList.add(type === 'success' ? 'flash-success' : 'flash-error', 'show');
+  
+        // Auto-hide after 3 seconds
+        setTimeout(() => closeFlashMessage(), 10000);
+      }
+  
+      function closeFlashMessage() {
+        const flashMessage = document.getElementById('flashMessage');
+        flashMessage.classList.remove('show');
+        setTimeout(() => flashMessage.style.display = 'none', 500); // Smooth fade out
+      }
+  
+      // Example Usage
+      // Uncomment the following line to see the flash message in action
+      showFlashMessage('success', 'Operation successful!');
+      // showFlashMessage('error', 'An error occurred!');
+</script>
+   -->

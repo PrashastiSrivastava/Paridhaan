@@ -1,0 +1,38 @@
+<% layout('layouts/boilerplate') %>
+
+<script>
+    const mapToken = "<%= process.env.MAP %>";
+</script>
+
+<style>
+    .map-body {
+        background-color: #FFF1CA;
+    }
+</style>
+
+<section class="map-body">
+    <div class="map-box">
+        <h3 class="map-head">OUR STORES</h3>
+        <div class="map-cont">
+            <div id="map"></div>
+        </div>
+        <p>At each of our locations, you can immerse yourself in a personalized style journey crafted just for you. Visit one of our stores and meet with a dedicated personal makeover specialist who will guide you through a customized styling session. From wardrobe consultations to trend updates, our specialists are here to ensure you get the look that best suits your unique personality and preferences.</p>
+        <p>Booking your makeover session is easy! Simply choose a location that’s most convenient for you, schedule an appointment, and get ready for a transformative style experience. We've also marked each store on our interactive map, making it easy for you to find and reach your preferred location effortlessly.</p>
+        <p>Start your journey towards your best style yet – explore our locations and book your makeover session today!</p>
+
+        
+        <div class="book-cont">
+            <div class="book">
+                <form method="get" action="/book" >
+                    <button type="submit">Book an appointment</button>
+                </form>
+            </div>
+            <div class="book-main"></div>
+        </div>
+        
+    </div>
+</section>
+
+
+
+<script src="js/map.js"></script>

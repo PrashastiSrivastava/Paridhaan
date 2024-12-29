@@ -1,0 +1,50 @@
+<!--This file we are creating for signup form.-->
+
+<% layout("/layouts/boilerplate") %>
+
+    <section class="home-login-signup">
+        <div class="sign">
+            <img src="/image/login-signup-background.jpg"/>
+            <div class="content">
+                <h2>Try your style</h2>
+                <p> Enjoy how styling websites save time by curating clothing options
+                    instead of browsing endless catalogs.
+                </p>
+                <a href="/home">Get Started</a>
+            </div>
+
+            <div class="wrapper-signup">
+                <h2>User Signup</h2>
+                <form method="post" action="/signup">
+                    <div class="input-box">
+                        <span class="icon"><ion-icon name="person"></ion-icon></span>
+                        <input name="username" type="text" required/>
+                        <label>Enter your Name</label>
+                    </div>
+                    <div class="input-box">
+                        <span class="icon"><ion-icon name="mail"></ion-icon></span>
+                        <input name="email" type="email" required/>
+                        <label>Enter your Email</label>
+                    </div>
+                    <div class="input-box">
+                        <span class="icon"><ion-icon name="lock-closed"></ion-icon></span>
+                        <input name="password" type="password" required/>
+                        <label>Enter your Password</label>
+                    </div>
+                    <div class="input-box">
+                        <span class="icon"><ion-icon name="lock-closed"></ion-icon></span>
+                        <input name="rePassword" type="re-password" required/>
+                        <label>Confirm password</label>
+                    </div>
+                    <div class="remember-forget">
+                        <label><input type="checkbox">
+                        Remeber me</label>
+                    </div>
+                    <button class="btn">Sign Up</button>
+                    <div class="register-link">
+                        <p>Already a member? <a href="/login">Login now</a></p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>

@@ -1,0 +1,140 @@
+<% layout('layouts/boilerplate') %>
+
+<section class="styles-recorded">
+    <div class="message-box">
+        <h1>Select Inputs</h1>
+        <form class="input-form" id="mainForm" action="/recommend_input" method="POST">
+            <!-- Dropdowns for user inputs -->
+            <div class="input-group">
+                <label for="Season">Choose a Season</label>
+                <select id="Season" name="season" onchange="updateInputArray()">
+                    <option value="" disabled selected>--Select--</option>
+                    <option value="summer">Summer</option>
+                    <option value="winter">Winter</option>
+                    <option value="spring">Spring</option>
+                    <option value="autumn">Autumn</option>
+                </select>
+            </div>
+            <div class="input-group">
+                <label for="Cloth-category">Cloth Category you are looking for?</label>
+                <select id="Cloth-category" name="cloth_category" onchange="updateInputArray()">
+                    <option value="" disabled selected>--Select--</option>
+                    <option value="t-shirt">t-shirt</option>
+                    <option value="shirt">shirt</option>
+                    <option value="jeans">jeans</option>
+                    <option value="suit">suit</option>
+                    <option value="trousers">trousers</option>
+                    <option value="skirt">skirt</option>
+                    <option value="jacket">jacket</option>
+                    <option value="coat">coat</option>
+                    <option value="jump-suit">jump-suit</option>
+                    <option value="dress">dress</option>
+                    <option value="sweater">sweater</option>
+                    <option value="top">top</option>
+                    <option value="sweatshirt">sweatshirt</option>
+                </select>
+            </div>
+            <div class="input-group">
+                <label for="Occasion">Occasion</label>
+                <select id="Occasion" name="occasion" onchange="updateInputArray()">
+                    <option value="" disabled selected>--Select--</option>
+                    <option value="Formal">Formal</option>
+                    <option value="Casual">Casual</option>
+                    <option value="Party">Party</option>
+                </select>
+            </div>
+        
+            <!-- Hidden input to store the array -->
+            <input type="hidden" id="inputArray" name="inputArray" value="">
+            <button class="btn">Pay Now!!</button>
+        </form>
+    </div>
+</section>
+
+
+<script>
+    function updateInputArray() {
+        // Get values from dropdowns
+        const season = document.getElementById('Season').value;
+        const clothCategory = document.getElementById('Cloth-category').value;
+        const occasion = document.getElementById('Occasion').value;
+
+        // Form an array and update the hidden input
+        const inputArray = [season, clothCategory, occasion];
+        document.getElementById('inputArray').value = JSON.stringify(inputArray);
+    }
+</script>
+
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Arial, sans-serif;
+    }
+
+    .styles-recorded {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: #EDE6E2;
+    }
+
+    .message-box {
+        text-align: center;
+        width: 90%;
+        max-width: 600px;
+        padding: 2rem;
+    }
+
+    h1 {
+        font-size: 2.5rem;
+        color: #1d3557;
+        margin-bottom: 1.5rem;
+        font-weight: 400;
+    }
+
+    .input-form {
+        margin-top: 1rem;
+    }
+
+    .input-group {
+        margin-bottom: 1.5rem;
+        text-align: left;
+    }
+
+    .input-group label {
+        display: block;
+        font-size: 1.2rem;
+        color: #1d3557;
+        margin-bottom: 0.5rem;
+    }
+
+    select {
+        width: 100%;
+        padding: 0.5rem 1rem;
+        font-size: 1rem;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+    }
+
+    button {
+        margin-top: 1rem;
+        padding: 0.8rem 2.5rem;
+        font-size: 1rem;
+        font-weight: 500;
+        color: #1d3557;
+        background-color: #fff;
+        border: none;
+        border-radius: 25px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+
+    button:hover {
+        background-color: #1d3557;
+        color: #fff;
+    }
+</style>

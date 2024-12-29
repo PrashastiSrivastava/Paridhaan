@@ -1,0 +1,88 @@
+<% layout('layouts/boilerplate') %>
+
+<section class="ques1">
+    <div class="name-input">
+        <label for="name">What’s your first name?</label>
+        <div class="input-container">
+            <form method="post" action="/quiz/ques1">
+                <input type="text" id="name" name="name" placeholder="First Name" required>
+                <button class="next-btn">Next</button>
+            </form>
+        </div>
+    </div>
+  </section>
+  
+  <style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Arial, sans-serif;
+    }
+  
+    .ques1 {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: #EDE6E2;
+    }
+  
+    .name-input {
+        text-align: center;
+        width: 90%;
+        max-width: 400px;
+    }
+  
+    label {
+        font-size: 1.8rem;
+        font-weight: 500;
+        color: #1d3557;
+        display: block;
+        margin-bottom: 1.5rem;
+    }
+  
+    .input-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+  
+    input {
+        width: 100%;
+        padding: 0.8rem;
+        font-size: 1rem;
+        background: transparent;
+        border: none;
+        border-bottom: 2px solid #1d3557;
+        outline: none;
+        text-align: center;
+        margin-bottom: 1.5rem;
+        color: #1d3557;
+    }
+    input ::after{
+        background: transparent;
+    }
+  
+    input::placeholder {
+        color: #a8a8a8;
+    }
+  
+    .next-btn {
+        padding: 0.8rem 2.5rem;
+        font-size: 1rem;
+        font-weight: 500;
+        color: #1d3557;
+        background-color: #fff;
+        border: none;
+        border-radius: 25px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+  
+    .next-btn:hover {
+        background-color: #1d3557;
+        color: #fff;
+    }
+  </style>
+  

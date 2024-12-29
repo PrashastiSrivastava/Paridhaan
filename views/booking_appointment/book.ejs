@@ -1,0 +1,47 @@
+<% layout("layouts/boilerplate") %>
+
+
+<section class="book-page">
+    <div class="book-container">
+        <img src="/image/book.jpg"/>
+        <div class="wrapper-book">
+            <h2>Book Your Appointment</h2>
+            <form method=post action="/appointment_booking/book-appointment">
+                <div>
+                    <select id="city" name="city" class="input-book" required>
+                        <option value="" disabled selected>Select a city</option>
+                        <option value="Lucknow">Lucknow</option>
+                        <option value="Delhi">Delhi</option>
+                        <option value="Mumbai">Mumbai</option>
+                        <option value="Kolkata">Kolkata</option>
+                        <option value="Hyderabad">Hyderabad</option>
+                        <option value="Kochi">Kochi</option>
+                        <option value="Bangalore">Bangalore</option>
+                        <option value="Ahmedabad">Ahmedabad</option>
+                    </select>
+                </div>
+                <input id="appointmentDate" type="date" name="date" class="input-book" required />
+                <button class="btn" onclick="prepareHiddenInputs()">Book Now</button>
+            </form>
+        </div>
+    </div>
+</section>
+
+<script>
+      app.post('/book-appointment', (req, res) => {
+    // Debug the raw body to understand what's being sent
+    console.log('Raw body:', req.body);
+
+    // Handle multiple values and select the first valid one
+    const city = Array.isArray(req.body.city) ? req.body.city.find(c => c.trim() !== '') : req.body.city;
+    const date = Array.isArray(req.body.date) ? req.body.date.find(d => d.trim() !== '') : req.body.date;
+
+    if (!city || !date) {
+        return res.status(400).send('City or date is missing or invalid');
+    }
+
+    console.log(`City: ${city}, Date: ${date}`);
+    res.send(`Appointment booked for ${city} on ${date}`);
+});
+
+</script>

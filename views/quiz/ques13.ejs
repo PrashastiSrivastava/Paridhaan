@@ -1,0 +1,225 @@
+<% layout('layouts/boilerplate') %>
+
+<section class="q13">
+  <div class="price">
+      <div class="container_q12">
+          <h2>How much are you willing to spend for the perfect fit?</h2>
+          <form id="priceForm" method="post" action="/quiz/ques13" onsubmit="return validateSelections()">
+              <!-- Tops Section -->
+              <div class="category">
+                  <h3>Tops</h3>
+                  <p>Blouses, tees, sweaters, tunics</p>
+                  <div class="price-options">
+                      <button type="button" class="price-btn tops" onclick="toggleSelection('tops', this, '300')">₹300</button>
+                      <button type="button" class="price-btn tops" onclick="toggleSelection('tops', this, '450')">₹450</button>
+                      <button type="button" class="price-btn tops" onclick="toggleSelection('tops', this, '600')">₹600</button>
+                      <button type="button" class="price-btn tops" onclick="toggleSelection('tops', this, '750')">₹750</button>
+                      <button type="button" class="price-btn tops" onclick="toggleSelection('tops', this, '1000+')">₹1000+</button>
+                      <input type="hidden" id="tops-input" name="tops" value="">
+                  </div>
+              </div>
+
+              <!-- Outerwear Section -->
+              <div class="category">
+                  <h3>Outerwear</h3>
+                  <p>Light jackets, trench coats, vests</p>
+                  <div class="price-options">
+                      <button type="button" class="price-btn outerwear" onclick="toggleSelection('outerwear', this, '400')">₹400</button>
+                      <button type="button" class="price-btn outerwear" onclick="toggleSelection('outerwear', this, '600')">₹600</button>
+                      <button type="button" class="price-btn outerwear" onclick="toggleSelection('outerwear', this, '800')">₹800</button>
+                      <button type="button" class="price-btn outerwear" onclick="toggleSelection('outerwear', this, '1000')">₹1000</button>
+                      <button type="button" class="price-btn outerwear" onclick="toggleSelection('outerwear', this, '1200+')">₹1200+</button>
+                      <input type="hidden" id="outerwear-input" name="outerwear" value="">
+                  </div>
+              </div>
+
+              <!-- Dresses Section -->
+              <div class="category">
+                  <h3>Dresses</h3>
+                  <p>Fit & flare, maxi, wrap, shift</p>
+                  <div class="price-options">
+                      <button type="button" class="price-btn dresses" onclick="toggleSelection('dresses', this, '3000')">₹3000</button>
+                      <button type="button" class="price-btn dresses" onclick="toggleSelection('dresses', this, '5000')">₹5000</button>
+                      <button type="button" class="price-btn dresses" onclick="toggleSelection('dresses', this, '7500')">₹7500</button>
+                      <button type="button" class="price-btn dresses" onclick="toggleSelection('dresses', this, '10000')">₹10000</button>
+                      <button type="button" class="price-btn dresses" onclick="toggleSelection('dresses', this, '12500+')">₹12500+</button>
+                      <input type="hidden" id="dresses-input" name="dresses" value="">
+                  </div>
+              </div>
+
+              <!-- Next Button -->
+              <button class="next-btn">Next</button>
+          </form>
+      </div>
+      <a href="ques12"><button class="prev-btn">Previous</button></a>
+  </div>
+</section>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    // Function to update hidden inputs and toggle button state
+    function updateSelection(category, value, button) {
+      // Find the hidden input for the category
+      const hiddenInput = document.getElementById(`${category}-input`);
+  
+      // If the button is already selected, deselect it and clear the value
+      if (button.classList.contains("selected")) {
+        button.classList.remove("selected");
+        hiddenInput.value = ""; // Clear the hidden input
+      } else {
+        // Deselect all buttons in the category
+        document.querySelectorAll(`.price-btn.${category}`).forEach((btn) => btn.classList.remove("selected"));
+  
+        // Select the clicked button
+        button.classList.add("selected");
+  
+        // Update the hidden input with the selected value
+        hiddenInput.value = value;
+      }
+  
+      // Debugging: Log the current state of hidden inputs
+      console.log(`${category} selected:`, hiddenInput.value);
+    }
+  
+    // Add event listeners to all price buttons
+    const categories = ["tops", "outerwear", "dresses"];
+    categories.forEach((category) => {
+      document.querySelectorAll(`.price-btn.${category}`).forEach((button) => {
+        button.addEventListener("click", () => {
+          const value = button.textContent.trim(); // Get the price value (e.g., ₹450)
+          updateSelection(category, value, button);
+        });
+      });
+    });
+  });
+  
+  // Function to validate that a price is selected for each category before form submission
+  function validateSelections() {
+    const categories = ["tops", "outerwear", "dresses"];
+  
+    for (const category of categories) {
+      const hiddenInput = document.getElementById(`${category}-input`);
+      if (!hiddenInput || !hiddenInput.value) {
+        alert(`Please select a price option for ${category.charAt(0).toUpperCase() + category.slice(1)}.`);
+        return false; // Prevent form submission
+      }
+    }
+  
+    return true; // Allow form submission
+  }
+  </script>
+  
+  
+
+<style>
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+  }
+
+  .q13{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 120vh;
+    background-color: #EDE6E2;
+  }
+
+  .price{
+    width: 63rem;
+    position: absolute;
+    top: 2rem;
+    left: 15rem;
+  }
+
+  .container_q12 {
+        padding: 4rem;
+        width: 90%;
+        max-width: 50rem;
+        margin-bottom: 1rem;
+        text-align: center; /* Center the text and buttons inside the container */
+    }
+
+    .container_q12 h2 {
+        text-align: center;
+        font-size: 1.8;
+        font-weight: 500;
+        margin-bottom: 1rem;
+        color: #1d3557;
+    }
+
+    .category h3 {
+        font-size: 1rem;
+        color: #1d3557;
+        margin-bottom: 1rem;
+        margin-top: 1rem;
+    }
+
+    .category p {
+        font-size: 1rem;
+        color: #1d3557;
+        margin-bottom: 1rem;
+    }
+
+    .price-options {
+        display: flex;
+        justify-content: space-between;
+        gap: 1rem;
+    }
+
+    .price-btn {
+        flex: 1;
+        padding: 0.5rem 2rem;
+        border-radius: 5px;
+        border: 1px solid black;
+        font-size: 1rem;
+        color: #1d3557;
+        background-color: #fff;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        text-align: center;
+    }
+
+    .price-btn:hover {
+      background-color : #1d3557;
+     color : #fff;
+    }
+
+    .price-btn.selected {
+      background-color : #1d3557;
+      color : #fff;
+    }
+
+    .prev-btn, .next-btn {
+    padding: 0.8rem 2.5rem;
+    font-size: 1rem;
+    font-weight: 500;
+    color: #1d3557;
+    background-color: #fff;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+    margin-top: 20px;
+  }
+  
+  .prev-btn:hover, .next-btn:hover {
+    background-color: #1d3557;
+    color: #fff;
+  }
+
+  .prev-btn {
+    position: absolute;
+    bottom: 0rem;
+    left: -3rem;
+  }
+
+  .next-btn {
+    position: absolute;
+    bottom: 0rem;
+    right: 11rem;
+  }
+</style>

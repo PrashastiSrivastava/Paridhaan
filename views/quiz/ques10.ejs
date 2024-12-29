@@ -1,0 +1,155 @@
+<% layout('layouts/boilerplate') %>
+
+<section class="ques8">
+  <div class="custom_q1">
+    <div class="input-container_q1">
+      <h2>How does your bust compare with your bustWaist?</h2>
+
+      <form method="post" action="/quiz/ques10" onsubmit="return validateBustWaist()">
+        <div class="input_box_q1">
+          <button type="button" class="opt" onclick="selectbustWaist(this, 'B smaller than W')"><img class="img1" src="/image/bodyshape/bust_waist_-1.png" alt="bust1" />My bust is smaller than my Waist</button><br>
+          <button type="button" class="opt" onclick="selectbustWaist(this, 'B same W')"><img class="img1" src="/image/bodyshape/bust_waist_0.png" alt="bust1" />My bust is the same size as my Waist</button><br>
+          <button type="button" class="opt" onclick="selectbustWaist(this, 'B larger than W')"><img class="img1" src="/image/bodyshape/bust_waist_1.png" alt="bust1" />My bust is larger than my Waist</button><br>
+        </div>
+        <input type="hidden" name="bustWaist" id="bustWaist" class="hidden-input">
+        <button class="next-btn">Next</button>
+      </form>
+    </div>
+
+    <!-- Previous button -->
+    <a href="ques9"><button class="prev-btn">Previous</button></a>
+  </div>
+</section>
+
+<script>
+  function selectbustWaist(button, bustWaist) {
+      const hiddenInput = document.getElementById('bustWaist');
+      
+      // Check if the button is already selected
+      if (button.classList.contains('selected')) {
+          // Deselect the button
+          button.classList.remove('selected');
+          hiddenInput.value = ''; // Clear the hidden input
+      } else {
+          // Remove the "selected" class from all buttons
+          const buttons = document.querySelectorAll('.opt');
+          buttons.forEach(btn => btn.classList.remove('selected'));
+
+          // Add the "selected" class to the clicked button
+          button.classList.add('selected');
+          hiddenInput.value = bustWaist; // Set the hidden input to the selected value
+      }
+  }
+
+  function validateBustWaist() {
+      const hiddenInput = document.getElementById('bustWaist');
+      if (!hiddenInput.value) {
+          alert('Please select an option before proceeding.');
+          return false; // Prevent form submission
+      }
+      return true; // Allow form submission
+  }
+</script>
+
+
+
+
+
+<style>
+
+  .ques8 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #EDE6E2; /* Light background */
+  }
+
+  .custom_q1 {
+    text-align: center;
+    background-color: transparent;
+    padding: 1rem;
+  }
+
+  .input-container_q1 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .input-container_q1 h2 {
+    font-size: 1.8rem;
+    font-weight: 500;
+    color: #1d3557;
+    margin-bottom: 2rem;
+  }
+
+  .input_box_q1 {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: 100%;
+    max-width: 500px;
+  }
+
+  .opt {
+    display: flex;
+    align-items: center;
+    border: 1px solid #1d3557;
+    width: 19rem;
+    text-align: center;
+    font-weight: 500;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+  }
+  
+   .img1 {
+    height: 3rem;
+    width: 3rem;
+    border-radius: 5px;
+    object-fit: cover;
+  }
+
+  .opt:hover {
+    background-color: #1d3557;
+    color: #fff;
+  }
+
+  .opt.selected {
+    background-color: #1d3557;
+    color: #fff;
+  }
+
+
+
+  .prev-btn, .next-btn {
+    padding: 0.8rem 2.5rem;
+    font-size: 1rem;
+    font-weight: 500;
+    color: #1d3557;
+    background-color: #fff;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+    margin-top: 20px;
+  }
+
+  .prev-btn:hover, .next-btn:hover {
+    background-color: #1d3557;
+    color: #fff;
+  }
+
+  .prev-btn {
+    position: absolute;
+    bottom: 10%;
+    left: 15%;
+  }
+
+  .next-btn {
+    position: absolute;
+    bottom: 10%;
+    right: 15%;
+  }
+</style>

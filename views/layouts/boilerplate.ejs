@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paridhaan</title>
+    <!--This below link is of fontawesome cdn link from "https://cdnjs.com/libraries/font-awesome". So, that all the logos that we have added from fontawesome website file can be displayed.-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" 
+    integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" 
+    crossorigin="anonymous" 
+    referrerpolicy="no-referrer" />
+
+    <!--This below link is of googleFonts Jakarta from "https://fonts.google.com/specimen/Plus+Jakarta+Sans". So, that we can use specifit font on our website-->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@1,200..800&family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
+
+    <!--This below link is for google fonts Bonheur from "https://fonts.google.com/selection/embed"-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bonheur+Royale&family=Rock+Salt&display=swap" rel="stylesheet">
+
+    
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Ahom&family=Plus+Jakarta+Sans:ital,wght@1,200..800&family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
+
+    <!--Playfair Display SC Static-->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Ahom&family=Playfair+Display+SC:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&family=Plus+Jakarta+Sans:ital,wght@1,200..800&family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
+
+    <!--This below link is for swipper from https://swiperjs.com/get-started-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+
+    <!--This below link is for the mapbox api https://docs.mapbox.com/mapbox-gl-js/example/setstyle/-->
+    <link href="https://api.mapbox.com/mapbox-gl-js/v3.8.0/mapbox-gl.css" rel="stylesheet">
+
+    <!--This below link is for mapbox api-->
+    <script src="https://api.mapbox.com/mapbox-gl-js/v3.8.0/mapbox-gl.js"></script>
+    
+    <link rel="stylesheet" href="/css/style.css"/>
+</head>
+<body>
+    <%- include("../includes/navbar") %>
+    <div> <!--This code is inserting the bode of all .ejs file into the boilerplate.ejs file-->
+        <%- include("../includes/flash") %>
+        <%- body %>
+    </div>
+    <%- include("../includes/footer") %>
+
+    <!--This below link is for swipper from https://swiperjs.com/get-started-->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    
+
+    <script src="/js/homeSlide1.js"></script>
+    <script src="/js/homeSlide2.js"></script>
+    
+
+    <!--This below link is for icons-->
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+</body>
+</html>

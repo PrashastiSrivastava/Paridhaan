@@ -1,0 +1,161 @@
+<% layout('layouts/boilerplate') %>
+
+<section class="ques8">
+  <a class="custom-q1">
+    <div class="input-container">
+      <h2>How does your bust compare with your hips?</h2>
+
+        <form method="post" action="/quiz/ques8" onsubmit="return validateBustSelection()">
+            <div class="input-box">
+                <button  type="button" class="opt" onclick="selectBust(this, 'B smaller than H')"><img class="img1" src="/image/bodyshape/bust_hips_-1.png" alt="bust1"/>My bust is smaller than my hips</button><br>
+                <button  type="button" class="opt" onclick="selectBust(this, 'B same as H')"><img class="img1" src="/image/bodyshape/bust_hips_0.png" alt="bust1"/>My bust is the same size as my hips</button><br>
+                <button  type="button" class="opt" onclick="selectBust(this, 'B bigger than H')"><img class="img1" src="/image/bodyshape/bust_hips_1.png" alt="bust1"/>My bust is larger than my hips</button><br>
+            </div>
+            <input type="hidden" name="bust" id="bust" class="hidden-input">
+            <button class="next-btn">Next</button>
+        </form>
+    </div>
+
+    <!-- Previous button -->
+      <a href="ques7"><button class="prev-btn">Previous</button></a>
+  </a>
+</section>
+
+<script>
+  function selectBust(button, bust) {
+      const hiddenInput = document.getElementById('bust');
+      
+      // Check if the button is already selected
+      if (button.classList.contains('selected')) {
+          // Deselect the button
+          button.classList.remove('selected');
+          hiddenInput.value = ''; // Clear the hidden input
+      } else {
+          // Remove the "selected" class from all buttons
+          const buttons = document.querySelectorAll('.opt');
+          buttons.forEach(btn => btn.classList.remove('selected'));
+
+          // Add the "selected" class to the clicked button
+          button.classList.add('selected');
+          hiddenInput.value = bust; // Set the hidden input to the selected value
+      }
+  }
+
+  function validateBustSelection() {
+      const bustValue = document.getElementById('bust').value;
+      if (!bustValue) {
+          alert('Please select an option before proceeding.');
+          return false; // Prevent form submission
+      }
+      return true; // Allow form submission
+  }
+</script>
+
+
+
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+  }
+
+  .ques8 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #EDE6E2; /* Light background */
+  }
+
+  .custom-q1 {
+    text-align: center;
+    background-color: transparent;
+    padding: 1rem;
+  }
+
+  
+
+  .input-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+
+  .input-container h2 {
+    font-size: 1.8rem;
+    font-weight: 500;
+    color: #1d3557;
+    margin-bottom: 2rem;
+  }
+
+  .input-box {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: 100%;
+    max-width: 500px;
+  }
+
+  .opt {
+    display: flex;
+    align-items: center;
+    border: 1px solid #1d3557;
+    width: 17rem;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+  }
+  
+   .img1 {
+    height: 3rem;
+    width: 3rem;
+    border-radius: 5px;
+    object-fit: cover;
+  }
+
+  .opt:hover {
+    background-color: #1d3557;
+    color: #fff;
+  }
+
+  .opt.selected {
+    background-color: #1d3557;
+    color: #fff;
+  }
+
+
+
+  .prev-btn, .next-btn {
+    padding: 0.8rem 2.5rem;
+    font-size: 1rem;
+    font-weight: 500;
+    color: #1d3557;
+    background-color: #fff;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+    margin-top: 20px;
+  }
+
+  .prev-btn:hover, .next-btn:hover {
+    background-color: #1d3557;
+    color: #fff;
+  }
+
+  .prev-btn {
+    position: absolute;
+    bottom: 10%;
+    left: 15%;
+  }
+
+  .next-btn {
+    position: absolute;
+    bottom: 10%;
+    right: 15%;
+  }
+</style>

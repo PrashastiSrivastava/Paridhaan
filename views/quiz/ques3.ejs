@@ -1,0 +1,92 @@
+<% layout('layouts/boilerplate') %>
+
+<section class="ques3">
+    <div class="height-check">
+      <label>How tall are you?</label>
+      <form method="post" action="/quiz/ques3">
+              <div class="height-buttons">
+            <input name ="feet" type="number" id="ft" name="ft" placeholder="Ft" min="1" max="7" required>
+                <input name ="inch" type="number" id="in" name="in" placeholder="In" min="1" max="11" required>
+              </div>
+          <button class="next-btn">Next</button>
+      </form>
+      <a href="ques2"><button class="prev-btn">Previous</button></a>
+    </div>
+  </section>
+  
+  <style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Arial, sans-serif;
+    }
+
+    .ques3 {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: #EDE6E2;
+    }
+
+    .height-check {
+        text-align: center;
+        width: 90%;
+        max-width: 400px;
+    }
+
+    label {
+        font-size: 1.8rem;
+        font-weight: 500;
+        color: #1d3557;
+        display: block;
+        margin-bottom: 2rem;
+    }
+
+    .height-check .height-buttons input {
+        width: 7rem;
+        padding: 0.5rem;
+        background: transparent;
+        font-size: 1rem;
+        border: none;
+        border-bottom: 2px solid #1d3557;
+        outline: none;
+        text-align: center;
+        color: #1d3557;
+    }
+
+    .input-box input::placeholder {
+        color: #a8a8a8;
+    }
+
+    .prev-btn, .next-btn {
+    padding: 0.8rem 2.5rem;
+    font-size: 1rem;
+    font-weight: 500;
+    color: #1d3557;
+    background-color: #fff;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+    margin-top: 20px;
+  }
+
+  .prev-btn:hover, .next-btn:hover {
+    background-color: #1d3557;
+    color: #fff;
+  }
+
+  .prev-btn {
+    position: absolute;
+    bottom: 10%;
+    left: 15%;
+  }
+
+  .next-btn {
+    position: absolute;
+    bottom: 10%;
+    right: 15%;
+  }
+</style>

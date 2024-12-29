@@ -1,0 +1,66 @@
+<% layout('layouts/boilerplate') %>
+
+<section class="styles-recorded">
+    <div class="message-box">
+        <h1>Appointment booked successfully!</h1>
+        <!-- <p>Go to Home</p> -->
+        <form method="get" action="/home">    
+            <button class="btn">Go to Home</button>
+        </form>
+    </div>
+</section>
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Arial, sans-serif;
+    }
+
+    .styles-recorded {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: #EDE6E2;
+    }
+
+    .message-box {
+        text-align: center;
+        width: 90%;
+        max-width: 700px;
+        padding: 2rem;
+    }
+
+    h1 {
+        font-size: 2.5rem;
+        color: #1d3557;
+        margin-bottom: 1.5rem;
+        font-weight: 400;
+    }
+
+    p {
+        font-size: 1.5rem;
+        color: #1d3557;
+        margin-bottom: 2rem;
+        font-weight: bold;
+    }
+
+    button {
+        padding: 0.8rem 2.5rem;
+        font-size: 1rem;
+        font-weight: 500;
+        color: #1d3557;
+        background-color: #fff;
+        border: none;
+        border-radius: 20px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+  
+    button:hover {
+        background-color: #1d3557;
+        color: #fff;
+    }
+</style>
